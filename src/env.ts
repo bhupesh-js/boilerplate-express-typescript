@@ -31,5 +31,8 @@ export const env = {
         level: getOsEnv('LOG_LEVEL'),
         output: getOsEnv('LOG_OUTPUT'),
     },
-   
+    swagger: {
+        enabled: toBool(getOsEnv('SWAGGER_ENABLED')),
+        route: getOsEnv('SWAGGER_ROUTE')
+    },
 };

@@ -15,6 +15,10 @@ export function banner(log: Logger): void {
         log.info(`API Info     : ${route()}${env.app.routePrefix}`);
         log.info('-------------------------------------------------------');
         log.info('');
+        if (env.swagger.enabled) {
+            log.info(`Swagger      : ${route()}${env.swagger.route}`);
+            log.info('');
+        }
     } else {
         log.info(`Application is up and running.`);
     }
