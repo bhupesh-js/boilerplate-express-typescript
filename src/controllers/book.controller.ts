@@ -3,6 +3,7 @@ import {
 	Body,
 	Post
 } from "routing-controllers";
+import { ResponseSchema } from "routing-controllers-openapi";
 import { Service } from "typedi";
 import { BaseService } from "../core/base.service";
 import { BookPostRequest } from "./request";
@@ -18,6 +19,7 @@ export class BookController extends BaseService {
 	}
 
 	@Post("/book")
+	@ResponseSchema(BookResponse)
 	post( @Body({ required: true }) book: BookPostRequest ): BookResponse {
 		
         this._logger.info(`Post Book`);

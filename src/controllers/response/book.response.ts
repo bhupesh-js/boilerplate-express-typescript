@@ -1,3 +1,5 @@
+import { IsString } from "class-validator";
+
 export class BookResponse{
 
     /**
@@ -6,6 +8,7 @@ export class BookResponse{
      * @type {string}
      * @memberof BookResponse
      */
+    @IsString()
     name:string;
 
 
@@ -15,5 +18,6 @@ export class BookResponse{
      * @type {string}
      * @memberof BookResponse
      */
+    @IsString()
     author:string
 }
