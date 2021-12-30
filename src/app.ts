@@ -3,9 +3,11 @@ import express from "express";
 import * as httpContext from "express-http-context";
 import { useContainer, useExpressServer } from "routing-controllers";
 import { Container } from "typedi";
+import * as swaggerUi from 'swagger-ui-express';
 import { Logger, configLogger } from "./core/logger";
 import { env } from './env';
 import { banner } from "./core/banner";
+import { swaggerConfig } from "./core/swagger";
 
 export class Application {
 	
@@ -35,6 +37,7 @@ export class Application {
 			interceptors: [__dirname +"/core/interceptors/*.ts"],
 		});
 		
+		this.server.use(env.swagger.route, swaggerUi.serve,  swaggerUi.setup(swaggerConfig()) )
 
 		const port = env.app.port;
 
