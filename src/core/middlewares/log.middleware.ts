@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
 import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
@@ -16,6 +17,7 @@ export class LogMiddleware implements ExpressMiddlewareInterface {
             stream: {
                 write: this.log.info.bind(this.log),
             },
+            skip:(req, res)=>env.isTest
         })(req, res, next);
     }
 
