@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "dev": "nodemon --config nodemon.json ./src/app.ts",
+    "dev": "nodemon --config nodemon.json ./src/index.ts",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
